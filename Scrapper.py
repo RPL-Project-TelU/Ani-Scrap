@@ -38,7 +38,11 @@ def urlEncode(url:str, data:str)->str:
     return url+"?"+param
 
 def downloadFile(url,path):
-    fn = re.findall(r".*\/(.*.jpg)", url)[0]
+    try:
+        fn = re.findall(r".*\/(.*.jpg|.*.png)", url)[0]
+    except:
+        print(url)
+        return ""
     if os.path.isfile(path+fn):
         return fn
     r = requests.get(url).content

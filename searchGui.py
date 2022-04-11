@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'tes.ui'
+# Form implementation generated from reading ui file 'searchGui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -9,54 +9,26 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import webScrapper, sys, searchGui, details
+import details
 
-
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 800)
-        MainWindow.setMaximumSize(QtCore.QSize(1000, 800))
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setMaximumSize(QtCore.QSize(1000, 800))
-        self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 1001, 51))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setContentsMargins(200, 0, 200, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.textEdit = QtWidgets.QTextEdit(self.horizontalLayoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
-        self.textEdit.setSizePolicy(sizePolicy)
-        self.textEdit.setMaximumSize(QtCore.QSize(500, 30))
-        self.textEdit.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.textEdit.setTabChangesFocus(False)
-        self.textEdit.setAcceptRichText(False)
-        self.textEdit.setObjectName("textEdit")
-        self.horizontalLayout.addWidget(self.textEdit)
-        self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.btnSearchClick)
-        self.horizontalLayout.addWidget(self.pushButton)
-        self.horizontalLayout.setStretch(0, 50)
-        self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 50, 1001, 751))
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(1000, 800)
+        Form.setMinimumSize(QtCore.QSize(1000, 800))
+        Form.setMaximumSize(QtCore.QSize(1000, 800))
+        self.gridLayoutWidget = QtWidgets.QWidget(Form)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(-10, 0, 1011, 801))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridAnimeList = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridAnimeList.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
         self.gridAnimeList.setContentsMargins(25, 25, 25, 25)
         self.gridAnimeList.setObjectName("gridAnimeList")
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def addAnimeBox(self,MainWindow,anime):
+    def addAnimeBox(self,anime):
         frameAnime = QtWidgets.QFrame(self.gridLayoutWidget)
         frameAnime.setMaximumSize(QtCore.QSize(450, 150))
         frameAnime.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -115,13 +87,11 @@ class Ui_MainWindow(object):
         lbl_title.setText(anime.title)
         lblstatus.setText("Status : "+anime.status)
         return frameAnime
-        # self.gridAnimeList.addWidget(frameAnime, cord[0], cord[1], cord[2], cord[3])
 
-    def retranslateUi(self, MainWindow):
+
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "AniScrap"))
-        self.textEdit.setPlaceholderText(_translate("MainWindow", "Cari Anime"))
-        self.pushButton.setText(_translate("MainWindow", "Cari"))
+        Form.setWindowTitle(_translate("Form", "Search"))
 
     def frameClick(self,anime):
         print(anime.title)
@@ -130,21 +100,13 @@ class Ui_MainWindow(object):
         ui.setupUi(self.Details)
         self.Details.show()
 
-    def btnSearchClick(self):
-        query = self.textEdit.toPlainText()
-        self.Search = QtWidgets.QWidget()
-        ui = searchGui.Ui_Form()
-        ui.setupUi(self.Search)
-        ui.updateList(webScrapper.querySearch(query))
-        self.Search.show()
-
-    def updateList(self, MainWindow, animes):
+    def updateList(self, animes):
         x, y = 0, 0
         for i in range(8):
             try:
                 anime = animes[i]
                 print(anime.title)
-                animeBox = self.addAnimeBox(MainWindow, anime)
+                animeBox = self.addAnimeBox(anime)
                 self.gridAnimeList.addWidget(animeBox,x,y,1,1)
                 if y == 1:
                     y = 0
@@ -153,3 +115,4 @@ class Ui_MainWindow(object):
                     y+=1
             except:
                 continue
+

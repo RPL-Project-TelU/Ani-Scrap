@@ -91,7 +91,7 @@
       <height>751</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridAnimeList">
+    <layout class="QGridLayout" name="gridAnimeList" rowminimumheight="0">
      <property name="sizeConstraint">
       <enum>QLayout::SetMaximumSize</enum>
      </property>
