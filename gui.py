@@ -100,6 +100,7 @@ class Ui_MainWindow(object):
         gridAnime.addWidget(lbl_title, 0, 1, 1, 1)
         lbl_img = QtWidgets.QLabel(gridLayoutWidget_2)
         lbl_img.setMaximumSize(QtCore.QSize(90, 125))
+        lbl_img.setScaledContents(True)
         lbl_img.setText("")
         lbl_img.setPixmap(QtGui.QPixmap(thumb))
         lbl_img.setObjectName("lbl_img")
