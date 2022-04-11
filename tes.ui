@@ -43,7 +43,7 @@
      <string notr="true">background-color: rgb(71, 71, 71);</string>
     </property>
    </widget>
-   <widget class="QLabel" name="title">
+   <widget class="QLabel" name="label_aniscrap">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -64,7 +64,7 @@
      <string>Ani-Scrap!</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_cari">
+   <widget class="QLineEdit" name="txtbox_cari">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -117,7 +117,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="topList_1">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -145,7 +145,7 @@
       <string notr="true">background-color: rgb(208, 208, 208);</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="label_sts_1">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -158,7 +158,7 @@
       <string>Status: Ongoing</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="label_epsT_1">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -171,7 +171,7 @@
       <string>Episode:12</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="label_gnr_1">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -187,7 +187,7 @@
       <string>Genre1, genre2, genre3</string>
      </property>
     </widget>
-    <widget class="QGraphicsView" name="graphicsView_2">
+    <widget class="QGraphicsView" name="imgBoxTop_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -197,7 +197,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_ss_1">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -210,7 +210,7 @@
       <string>Season: 1</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_JudulT_1">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -226,7 +226,7 @@
       <string>Judul anime lorem ipsum....</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_21">
+    <widget class="QLabel" name="label_rank_1">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -243,7 +243,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QFrame" name="topList_2">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -271,7 +271,7 @@
       <string notr="true">background-color: rgb(208, 208, 208);</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="label_sts_2">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -284,7 +284,7 @@
       <string>Status: Ongoing</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="label_epsT_2">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -297,7 +297,7 @@
       <string>Episode:12</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="label_gnr_2">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -313,7 +313,7 @@
       <string>Genre1, genre2, genre3</string>
      </property>
     </widget>
-    <widget class="QGraphicsView" name="graphicsView_3">
+    <widget class="QGraphicsView" name="imgBoxTop_2">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -323,7 +323,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="label_ss_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -336,7 +336,7 @@
       <string>Season: 1</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="label_JudulT_2">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -352,7 +352,7 @@
       <string>Judul anime lorem ipsum....</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="label_rank_2">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -369,7 +369,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_3">
+   <widget class="QFrame" name="topList_3">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -397,7 +397,7 @@
       <string notr="true">background-color: rgb(208, 208, 208);</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="label_sts_3">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -410,7 +410,7 @@
       <string>Status: Ongoing</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="label_epsT_3">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -423,7 +423,7 @@
       <string>Episode:12</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="label_gnr_3">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -439,7 +439,7 @@
       <string>Genre1, genre2, genre3</string>
      </property>
     </widget>
-    <widget class="QGraphicsView" name="graphicsView_4">
+    <widget class="QGraphicsView" name="imgBoxTop_3">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -449,7 +449,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="label_ss_3">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -462,7 +462,7 @@
       <string>Season: 1</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15">
+    <widget class="QLabel" name="label_JudulT_3">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -478,7 +478,7 @@
       <string>Judul anime lorem ipsum....</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_23">
+    <widget class="QLabel" name="label_rank_3">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -495,7 +495,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_4">
+   <widget class="QFrame" name="topList_4">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -523,7 +523,7 @@
       <string notr="true">background-color: rgb(208, 208, 208);</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_16">
+    <widget class="QLabel" name="label_sts_4">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -536,7 +536,7 @@
       <string>Status: Ongoing</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_17">
+    <widget class="QLabel" name="label_epsT_4">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -549,7 +549,7 @@
       <string>Episode:12</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_18">
+    <widget class="QLabel" name="label_gnr_4">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -565,7 +565,7 @@
       <string>Genre1, genre2, genre3</string>
      </property>
     </widget>
-    <widget class="QGraphicsView" name="graphicsView_5">
+    <widget class="QGraphicsView" name="imgBoxTop_4">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -575,7 +575,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_19">
+    <widget class="QLabel" name="label_ss_4">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -588,7 +588,7 @@
       <string>Season: 1</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_20">
+    <widget class="QLabel" name="label_JudulT_4">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -604,7 +604,7 @@
       <string>Judul anime lorem ipsum....</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_24">
+    <widget class="QLabel" name="label_rank_4">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -621,7 +621,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_26">
+   <widget class="QLabel" name="label_Judul">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -637,7 +637,7 @@
      <string>Judul</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_27">
+   <widget class="QLabel" name="label_episode">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -653,7 +653,7 @@
      <string>Episode</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_6">
+   <widget class="QFrame" name="listContent_1">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -668,7 +668,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphicsView_6">
+    <widget class="QGraphicsView" name="imgBox_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -678,7 +678,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_29">
+    <widget class="QLabel" name="label_judul_1">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -694,7 +694,7 @@
       <string>Judul Lorem ipsum dolor sit...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_30">
+    <widget class="QLabel" name="label_eps_1">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -711,7 +711,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_7">
+   <widget class="QFrame" name="listContent_2">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -726,7 +726,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphicsView_7">
+    <widget class="QGraphicsView" name="imgBox_2">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -736,7 +736,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_31">
+    <widget class="QLabel" name="label_judul_2">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -752,7 +752,7 @@
       <string>Judul Lorem ipsum dolor sit...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_32">
+    <widget class="QLabel" name="label_eps_2">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -769,7 +769,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_8">
+   <widget class="QFrame" name="listContent_3">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -784,7 +784,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphicsView_8">
+    <widget class="QGraphicsView" name="imgBox_3">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -794,7 +794,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_33">
+    <widget class="QLabel" name="label_judul_3">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -810,7 +810,7 @@
       <string>Judul Lorem ipsum dolor sit...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_34">
+    <widget class="QLabel" name="label_eps_3">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -827,7 +827,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_9">
+   <widget class="QFrame" name="listContent_4">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -842,7 +842,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphicsView_9">
+    <widget class="QGraphicsView" name="imgBox_4">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -852,7 +852,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_35">
+    <widget class="QLabel" name="label_judul_4">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -868,7 +868,7 @@
       <string>Judul Lorem ipsum dolor sit...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_36">
+    <widget class="QLabel" name="label_eps_4">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -885,7 +885,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_10">
+   <widget class="QFrame" name="listContent_5">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -900,7 +900,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphicsView_10">
+    <widget class="QGraphicsView" name="imgBox_5">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -910,7 +910,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_37">
+    <widget class="QLabel" name="label_judul_5">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -926,7 +926,7 @@
       <string>Judul Lorem ipsum dolor sit...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_38">
+    <widget class="QLabel" name="label_eps_5">
      <property name="geometry">
       <rect>
        <x>370</x>
