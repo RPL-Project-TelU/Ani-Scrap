@@ -103,6 +103,7 @@ class Ui_MainWindow(object):
         lbl_img.setText("")
         lbl_img.setPixmap(QtGui.QPixmap(thumb))
         lbl_img.setObjectName("lbl_img")
+        lbl_img.setScaledContents(True)
         gridAnime.addWidget(lbl_img, 0, 0, 3, 1)
         btn_play = QtWidgets.QPushButton(gridLayoutWidget_2, clicked = lambda: self.frameClick(objName))
         btn_play.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
