@@ -4,7 +4,7 @@ from html import unescape
 base_url = "https://anoboy.online/"
 
 def querySearch(query:str) -> str:
-    r = Scraper.parse_web(base_url+"search/"+query)
+    r = Scrapper.parse_web(base_url+"search/"+query)
     c = r.findAll("article")
     animes = []
     for i in range(len(c)):

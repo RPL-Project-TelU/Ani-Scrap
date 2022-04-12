@@ -1,3 +1,4 @@
+# https://github.com/Soviena/kaa.si-cli/blob/main/kaasi_cli/kaasi.py
 import urllib.parse, os
 import cloudscraper, re, base64, requests, random
 from bs4 import BeautifulSoup
