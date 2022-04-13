@@ -88,7 +88,7 @@
       <x>0</x>
       <y>50</y>
       <width>1001</width>
-      <height>751</height>
+      <height>721</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridAnimeList" rowminimumheight="0">
@@ -251,6 +251,46 @@
     </layout>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHistory">
+    <property name="title">
+     <string>Anime</string>
+    </property>
+    <addaction name="actionOpen_History"/>
+    <addaction name="actionOpen_History_2"/>
+   </widget>
+   <widget class="QMenu" name="menuAnilist">
+    <property name="title">
+     <string>Anilist</string>
+    </property>
+    <addaction name="actionOpen_Anilist_Setting"/>
+   </widget>
+   <addaction name="menuHistory"/>
+   <addaction name="menuAnilist"/>
+  </widget>
+  <action name="actionOpen_History">
+   <property name="text">
+    <string>Continue Watching</string>
+   </property>
+  </action>
+  <action name="actionOpen_History_2">
+   <property name="text">
+    <string>Open History</string>
+   </property>
+  </action>
+  <action name="actionOpen_Anilist_Setting">
+   <property name="text">
+    <string>Open Anilist Setting</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -9,10 +9,11 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from function import webScrapper
 
 class Ui_Form(object):
-    def setupUi(self, Form):
+    def setupUi(self, Form, anime):
+        anime = webScrapper.getDetails(anime)
         Form.setObjectName("Form")
         Form.resize(1000, 800)
         Form.setMinimumSize(QtCore.QSize(1000, 800))
@@ -50,8 +51,9 @@ class Ui_Form(object):
         self.sbox_eps.setMinimumSize(QtCore.QSize(200, 30))
         self.sbox_eps.setMaximumSize(QtCore.QSize(200, 30))
         self.sbox_eps.setMinimum(1)
-        self.sbox_eps.setMaximum(9999)
+        self.sbox_eps.setMaximum(len(anime.eplist))
         self.sbox_eps.setObjectName("sbox_eps")
+        self.sbox_eps.setValue(len(anime.eplist))
         self.epsLayout.addWidget(self.sbox_eps)
         self.btn_epsSel = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.btn_epsSel.setMinimumSize(QtCore.QSize(200, 30))
@@ -96,7 +98,7 @@ class Ui_Form(object):
         self.lbl_img.setMinimumSize(QtCore.QSize(300, 400))
         self.lbl_img.setMaximumSize(QtCore.QSize(300, 400))
         self.lbl_img.setText("")
-        self.lbl_img.setPixmap(QtGui.QPixmap("resource/121382.th.jpg"))
+        self.lbl_img.setPixmap(QtGui.QPixmap(anime.thumb))
         self.lbl_img.setScaledContents(True)
         self.lbl_img.setObjectName("lbl_img")
         self.detailsLayout.addWidget(self.lbl_img, 0, 0, 3, 1)
@@ -108,12 +110,13 @@ class Ui_Form(object):
         font.setPointSize(14)
         self.txt_synopsis.setFont(font)
         self.txt_synopsis.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.txt_synopsis.setPlainText("Setelah berakhirnya Perang Dunia Shinobi Keempat, Konohagakure menikmati masa damai, kemakmuran, dan kemajuan teknologi yang luar biasa. Ini semua karena upaya Pasukan Sekutu Shinobi dan Hokage Ketujuh desa, Naruto Uzumaki. Kini menyerupai kota metropolis modern, Konohagakure telah berubah, terutama kehidupan shinobi. Di bawah pengawasan ketat Naruto dan rekan-rekan lamanya, generasi baru shinobi telah melangkah untuk mempelajari cara ninja.Boruto Uzumaki sering menjadi pusat perhatian sebagai anak Hokage Ketujuh. Meskipun memiliki warisan Naruto riuh dan keras kepala, Boruto dianggap sebagai anak ajaib dan mampu melepaskan potensinya dengan bantuan teman dan keluarga yang mendukung. Sayangnya, ini hanya memperburuk arogansi dan keinginannya untuk melampaui Naruto yang, bersama dengan gaya hidup ayahnya yang sibuk, telah menegangkan hubungan mereka. Namun, kekuatan jahat yang berkembang di dalam desa dapat mengancam kehidupan Borobudur yang ceria. Teman baru dan wajah akrab bergabung dengan Boruto sebagai cerita baru dimulai di Boruto: Naruto Next Generations\n"
-"")
+        self.txt_synopsis.setPlainText(anime.desc)
         self.txt_synopsis.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.txt_synopsis.setPlaceholderText("")
         self.txt_synopsis.setObjectName("txt_synopsis")
         self.detailsLayout.addWidget(self.txt_synopsis, 2, 1, 1, 1)
+
+        self.lbl_title.setText(anime.title)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -121,7 +124,6 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Details"))
-        self.lbl_title.setText(_translate("Form", "TITLE_LOREM_IPSUM SMOMEAOSNFWLEIFkjkjkkjkljkllhlhlhlhl"))
         self.lbl_synopsis.setText(_translate("Form", "Synopsis :"))
         self.btn_epsSel.setText(_translate("Form", "Play Episode"))
         self.lbl_episode.setText(_translate("Form", "EPISODE : "))

@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets
-import sys, gui, objectClass, webScrapper
+import sys
+from GUI import gui
+from function import webScrapper
 
 def init():
     app = QtWidgets.QApplication(sys.argv)
@@ -11,7 +13,7 @@ def init():
 if __name__ == "__main__":
     # Setup
     app, ui, MainWindow = init()
-    print("Loading..")
+    print("Waiting for anoboy.online")
     ui.updateList(MainWindow,webScrapper.recent())
     MainWindow.show()
     sys.exit(app.exec_())
