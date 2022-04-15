@@ -55,7 +55,7 @@ class Ui_Form(object):
         self.sbox_eps.setObjectName("sbox_eps")
         self.sbox_eps.setValue(len(anime.eplist))
         self.epsLayout.addWidget(self.sbox_eps)
-        self.btn_epsSel = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btn_epsSel = QtWidgets.QPushButton(self.gridLayoutWidget, clicked = lambda: self.selectEpisode(int(self.sbox_eps.text())-1, anime))
         self.btn_epsSel.setMinimumSize(QtCore.QSize(200, 30))
         self.btn_epsSel.setMaximumSize(QtCore.QSize(200, 30))
         self.btn_epsSel.setObjectName("btn_epsSel")
@@ -130,6 +130,8 @@ class Ui_Form(object):
         self.lbl_eps.setText(_translate("Form", "Episode xxxxx"))
         self.btn_play.setText(_translate("Form", "Play"))
 
+    def selectEpisode(self, number:int, anime):
+        print(anime.eplist[number])
 
 # if __name__ == "__main__":
 #     import sys
