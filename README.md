@@ -9,3 +9,13 @@ Aplikasi webscrapping untuk mencari anime dan memplay langsung dari aplikasi tan
 1. 1302202095 Angelina Yessyca Rahardjo Hadi
 1. 1302204029 Alwan Kemal
 1. 1302204112 Rifky Firdaus
+
+## Running the program
+`git clone https://github.com/RPL-Project-TelU/Ani-Scrap.git`
+
+`cd Ani-Scrap`
+
+`pip install -r requirements.txt`
+
+`python Main.py`
+

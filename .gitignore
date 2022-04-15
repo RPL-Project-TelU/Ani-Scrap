@@ -1,3 +1,5 @@
 __pycache__
 test.py
-tmp/*
+testGui.py
+tmp/*.jpg
+tmp/*.png
