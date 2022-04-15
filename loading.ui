@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>506</width>
+    <height>418</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>120</y>
+     <width>131</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/HD-wallpaper-cute-girl-alone-anime-game-games-girl-loading-lonely-solo.jpg</normaloff>../OneDrive/Pictures/HD-wallpaper-cute-girl-alone-anime-game-games-girl-loading-lonely-solo.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>400</width>
+     <height>400</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>291</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>0</y>
+     <width>291</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>170</y>
+     <width>291</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>170</y>
+     <width>301</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>250</y>
+     <width>301</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>260</y>
+     <width>301</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</normaloff>../OneDrive/Pictures/black_dark_fractal_149686_300x175.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>300</width>
+     <height>300</height>
+    </size>
+   </property>
+  </widget>
+  <zorder>pushButton_2</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>pushButton_4</zorder>
+  <zorder>pushButton_5</zorder>
+  <zorder>pushButton_6</zorder>
+  <zorder>pushButton_7</zorder>
+  <zorder>pushButton</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
