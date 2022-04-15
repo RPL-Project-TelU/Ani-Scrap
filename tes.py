@@ -15,26 +15,26 @@ logo = """
 \033[0m                                          
 """
 
-# def firstSetup(): #set config untuk user yg digunakan sbg data pd proses selanjutnya
-#     try:
-#         with open('./kaasi.txt','r',encoding='utf-8') as config:
-#             return eval(config.read())
-#     except:
-#         with open('./kaasi.txt','w',encoding='utf-8') as config:
-#             setup = {}
-#             print("First time setup")
-#             if int(input("Preferred media player :\n[1] MPV\n[2] VLC\nInput : ")) == 1 :
-#                 setup['player'] = "mpv"
-#             else :
-#                 setup['player'] = "vlc"
-#             setup['termux'] = input("Are you using Termux ? [y/n] : ") in ('Y','y')
-#             setup['anilist'] = input("Login with anilist ? [y/n] : ") in ('y','Y')
-#             if setup['anilist']:
-#                 setup['token'] = anilist.login()
-#                 setup['auto'] = input("Auto update anilist after watching anime ? [y/n] : ") in ('y','Y')
-#                 setup['username'] = eval(anilist.getUserId(setup['token']).content)['data']['Viewer']['name']
-#             config.write(str(setup))
-#             return setup
+def firstSetup(): #set config untuk user yg digunakan sbg data pd proses selanjutnya
+    try:
+        with open('./kaasi.txt','r',encoding='utf-8') as config:
+            return eval(config.read())
+    except:
+        with open('./kaasi.txt','w',encoding='utf-8') as config:
+            setup = {}
+            print("First time setup")
+            if int(input("Preferred media player :\n[1] MPV\n[2] VLC\nInput : ")) == 1 :
+                setup['player'] = "mpv"
+            else :
+                setup['player'] = "vlc"
+            setup['termux'] = input("Are you using Termux ? [y/n] : ") in ('Y','y')
+            setup['anilist'] = input("Login with anilist ? [y/n] : ") in ('y','Y')
+            if setup['anilist']:
+                setup['token'] = anilist.login()
+                setup['auto'] = input("Auto update anilist after watching anime ? [y/n] : ") in ('y','Y')
+                setup['username'] = eval(anilist.getUserId(setup['token']).content)['data']['Viewer']['name']
+            config.write(str(setup))
+            return setup
 
 def outputAnime(animeList):
     for i in range(len(animeList)):
@@ -241,7 +241,7 @@ try:
 except:
     print("Can't Connect to discord")
 
-# cfg = firstSetup()
+cfg = firstSetup()
 
 watch_history = {'anime' : {}, 'last' : {}, 'airing' : {}}
 try:
@@ -420,4 +420,4 @@ while True:
             episodeData = kaa.select_episode(animeLink)
             embedVideoLink = kaa.check_link(episodeData)
         else:
-            break
+            break #kembbali ke menu [0], x==0
