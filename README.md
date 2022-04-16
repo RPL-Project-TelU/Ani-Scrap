@@ -1,6 +1,11 @@
 # Project AniScrap!
 Aplikasi webscrapping untuk mencari anime dan memplay langsung dari aplikasi tanpa iklan.
 
+## Demo
+
+https://user-images.githubusercontent.com/40521471/163656740-26ebf10d-3ca3-4351-8981-edf2971cd296.mp4
+
+
 ## Team Members
 1. 1302204044 Muhammad Rovino Sanjaya
 1. 1302204024 Muhammad Rizqi Anshari
