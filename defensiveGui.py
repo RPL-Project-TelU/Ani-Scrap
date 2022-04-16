@@ -17,4 +17,3 @@ def btnSearchClick(self):
     else:
         ui.updateList(webScrapper.querySearch(query))
         self.Search.show()
-        
