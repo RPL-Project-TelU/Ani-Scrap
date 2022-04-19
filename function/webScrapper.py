@@ -3,7 +3,7 @@ from sys import prefix
 from html import unescape
 from function.objectClass import Anime
 from function import Scrapper
-base_url = "https://anoboy.online/"
+base_url = "https://anoboy.live/"
 
 
 def querySearch(query:str) -> str:
