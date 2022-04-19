@@ -16,6 +16,10 @@ https://user-images.githubusercontent.com/40521471/163656740-26ebf10d-3ca3-4351-
 1. 1302204112 Rifky Firdaus
 
 ## Running the program
+### Pre requirements
+1. python3 terinstall dan telah ditambahkan ke path
+1. mpv atau vlc terinstall dan telah ditambahkan ke path
+
 `git clone https://github.com/RPL-Project-TelU/Ani-Scrap.git`
 
 `cd Ani-Scrap`
