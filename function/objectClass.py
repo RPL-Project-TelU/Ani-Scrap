@@ -7,17 +7,21 @@ class Anime:
     desc:str = ""
     eplist:list = None
     eps:str = ""
+    genres:list = None
 
-    def __new__(cls, title:str,status:str,eps:str,link:str,thumb:str):
+    def __new__(cls, objname:str,title:str,status:str,link:str,thumb:str,desc:str,eps:str):
         anime = object.__new__(cls)
         return anime
 
-    def __init__(self, title:str,status:str,eps:str,link:str,thumb:str):
+    def __init__(self, objname:str,title:str,status:str,link:str,thumb:str,desc:str,eps:str):
         if self.eplist is None:
             self.eplist = []
-        self.objName = link[29:]
-        self.title = title.replace("Nonton anime ", "").replace(" Sub Indo", "")
+        if self.genres is None:
+            self.genres = []
+        self.objName = objname
+        self.title = title
         self.status = status
-        self.eps = eps
         self.link = link
         self.thumb = thumb
+        self.desc = desc
+        self.eps = eps
