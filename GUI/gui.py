@@ -136,7 +136,7 @@ class Ui_MainWindow(object):
         self.Search = QtWidgets.QWidget()
         ui = searchGui.Ui_Form()
         ui.setupUi(self.Search)
-        ui.updateList(webScrapper.querySearch(query))
+        ui.updateList(webScrapper.query("load_search_movie",False,query))
         self.Search.show()
 
     def updateList(self, MainWindow, animes):
