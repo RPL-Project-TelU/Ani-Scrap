@@ -13,7 +13,7 @@ def init():
 if __name__ == "__main__":
     # Setup
     app, ui, MainWindow = init()
-    print("Waiting for anoboy.live")
-    ui.updateList(MainWindow,webScrapper.query("load_movie_last_update"))
+    print("Waiting for anoboy.online")
+    ui.updateList(MainWindow,webScrapper.recent())
     MainWindow.show()
     sys.exit(app.exec_())

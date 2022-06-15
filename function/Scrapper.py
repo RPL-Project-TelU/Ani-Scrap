@@ -45,7 +45,6 @@ def downloadFile(url,path):
         return ""
     if os.path.isfile(path+fn):
         return fn
-    print("downloading image "+fn)
     r = requests.get(url).content
     with open(f"{path}{fn}", "wb+") as f:
         f.write(r)

@@ -14,6 +14,7 @@ import os
 
 class Ui_Form(object):
     def setupUi(self, Form, anime):
+        anime = webScrapper.getDetails(anime)
         Form.setObjectName("Form")
         Form.resize(1000, 800)
         Form.setMinimumSize(QtCore.QSize(1000, 800))
@@ -131,9 +132,8 @@ class Ui_Form(object):
         self.btn_play.setText(_translate("Form", "Play"))
 
     def playEpisode(self, number:int, anime):
-        pass
-        # link = webScrapper.selectMirror(anime.eplist[number])
-        # os.system("mpv "+link)
+        link = webScrapper.selectMirror(anime.eplist[number])
+        os.system("mpv "+link)
 
 # if __name__ == "__main__":
 #     import sys
