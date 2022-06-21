@@ -30,12 +30,14 @@ def selectEpisode(animeUrl:str)->str:
 
 def selectMirror(epUrl:str)->str:
     r = Scrapper.parse_web(epUrl)
-    print(r)
+    # print(r)
     videoServer = r.find('select', class_="mirror").findAll('option')
-    for i in range(1,len(videoServer)):
-        print("[{}] ".format(i)+videoServer[i].text)
-    x = int(input("Pilih source : "))
-    return re.findall(r'src="(.*?)"', Scraper.decode_base64(videoServer[x]['value']))[0]
+    # for i in range(1,len(videoServer)):
+    #     print("[{}] ".format(i)+videoServer[i].text)
+    # x = int(input("Pilih source : "))
+    link = re.findall(r'src="(.*?)"', Scrapper.decode_base64(videoServer[2]['value']))[0]
+    page = Scrapper.parse_web(link)
+    return page.find('iframe')['src']
 
 def recent()->Anime:
     r = Scrapper.parse_web(base_url)
@@ -55,7 +57,7 @@ def recent()->Anime:
 def getDetails(anime:Anime)->Anime:
     r = Scrapper.parse_web(anime.link)
     anime.desc = r.find('div',class_="entry-content").text
-    for i in r.find("div",class_="eplister").findAll("a"):
+    for i in reversed(r.find("div",class_="eplister").findAll("a")):
         anime.eplist.append(i['href'])
     return anime
 
