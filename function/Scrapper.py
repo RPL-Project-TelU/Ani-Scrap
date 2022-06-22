@@ -33,7 +33,7 @@ def api_get(url:str,json:str=None,headers:str=None,data:str=None,post:bool=False
             page = requests.get(url,headers=headers,json=json,data=data)
     return page
 
-def urlEncode(url:str, data:str)->str:
+def urlEncode(url:str, data:dict)->str:
     param = urllib.parse.urlencode(data)
     return url+"?"+param
 

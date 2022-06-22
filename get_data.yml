@@ -1,0 +1,12 @@
+openapi: 3.0.0
+tags:
+  - name: Get data
+get: 
+  description: None
+responses:
+    '200':
+      description: Successful response
+    '400':
+      description: Bad Request
+    '500':
+      description: Internal Server Error
