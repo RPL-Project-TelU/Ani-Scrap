@@ -1,5 +1,6 @@
 import unittest
 import function.Scrapper as scrap
+import os
 
 class TestStringMethods(unittest.TestCase):
 
@@ -9,16 +10,10 @@ class TestStringMethods(unittest.TestCase):
     def test_parse(self):
         page = scrap.parse_web("https://example.com/")
         self.assertEqual(page.find('h1').text, "Example Domain")
-    # def test_isupper(self):
-    #     self.assertTrue('FOO'.isupper())
-    #     self.assertFalse('Foo'.isupper())
 
-    # def test_split(self):
-    #     s = 'hello world'
-    #     self.assertEqual(s.split(), ['hello', 'world'])
-    #     # check that s.split fails when the separator is not a string
-    #     with self.assertRaises(TypeError):
-    #         s.split(2)
+    def test_downloadFile(self):
+        dl = scrap.downloadFile("https://image.tmdb.org/t/p/original/oz5upj4Be6u0WVKFUOObEggNcJ5.jpg", './tmp/')
+        self.assert_(os.path.isfile("./tmp/oz5upj4Be6u0WVKFUOObEggNcJ5.jpg"))
 
 if __name__ == '__main__':
     unittest.main()
