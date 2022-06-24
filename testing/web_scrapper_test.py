@@ -1,19 +1,22 @@
 import unittest
 import function.Scrapper as scrap
 
+
 class TestStringMethods(unittest.TestCase):
 
-    pass
-    # def test_isupper(self):
-    #     self.assertTrue('FOO'.isupper())
-    #     self.assertFalse('Foo'.isupper())
-
-    # def test_split(self):
-    #     s = 'hello world'
-    #     self.assertEqual(s.split(), ['hello', 'world'])
-    #     # check that s.split fails when the separator is not a string
-    #     with self.assertRaises(TypeError):
-    #         s.split(2)
+   #Berfungsi untuk mengetes fungsi selectEpisode
+   def test_selectEpisode(self):
+          self.assertEqual(scrap.selectEpisode,"https://anoboy.online/episode/yuusha-yamemasu-episode-001")
+   
+   #Berfungsi untuk mengetes fungsi selectMirror
+   def test_selectMirror(self):
+          self.assertEqual(scrap.selectMirror,"https://core.arc.io/broker.html?94c5673")
+   
+   
+          
+          
+          
+       
 
 if __name__ == '__main__':
     unittest.main()
