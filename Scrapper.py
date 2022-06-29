@@ -2,6 +2,9 @@ import urllib.parse, os
 import cloudscraper, re, base64, requests, random
 from bs4 import BeautifulSoup
 
+# decode_Base64 adalah fungsi untuk mendecode atau mentranslate dari base 64 ke ascii
+# Masukan berupa string berbasis base64 dan sebuah bool untuk memastikan metode yg digunakan
+# Keluaran berupa string berbasis ascii
 def decode_base64(text:str,lossless:bool=False)->str:
     base64_bytes = text.encode('ascii')
     if lossless:
@@ -33,7 +36,7 @@ def api_get(url:str,json:str=None,headers:str=None,data:str=None,post:bool=False
             page = requests.get(url,headers=headers,json=json,data=data)
     return page
 
-def urlEncode(url:str, data:str)->str:
+def urlEncode(url:str, data:dict)->str:
     param = urllib.parse.urlencode(data)
     return url+"?"+param
 

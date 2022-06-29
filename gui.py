@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-from GUI import searchGui, details
+from gui import searchGui, details, Controller
 from function import webScrapper
 
 class Ui_MainWindow(object):
@@ -125,32 +125,10 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Cari"))
 
     def frameClick(self,anime):
-        print(anime.title)
-        self.Details = QtWidgets.QWidget()
-        ui = details.Ui_Form()
-        ui.setupUi(self.Details, anime)
-        self.Details.show()
+        Controller.showDetail(self,anime)
 
     def btnSearchClick(self):
-        query = self.textEdit.toPlainText()
-        self.Search = QtWidgets.QWidget()
-        ui = searchGui.Ui_Form()
-        ui.setupUi(self.Search)
-        ui.updateList(webScrapper.querySearch(query))
-        self.Search.show()
+        Controller.btnSearchClick(self)
 
-    def updateList(self, MainWindow, animes):
-        x, y = 0, 0
-        for i in range(8):
-            try:
-                anime = animes[i]
-                print(anime.title)
-                animeBox = self.addAnimeBox(MainWindow, anime)
-                self.gridAnimeList.addWidget(animeBox,x,y,1,1)
-                if y == 1:
-                    y = 0
-                    x += 1
-                else:
-                    y+=1
-            except:
-                continue
+    def updateList(self,MainWindow, animes):
+        Controller.updateList(self,animes,MainWindow)

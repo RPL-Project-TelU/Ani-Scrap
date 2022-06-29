@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 import sys
-from GUI import gui
+from gui import gui, Controller
 from function import webScrapper
 
 def init():
@@ -14,6 +14,6 @@ if __name__ == "__main__":
     # Setup
     app, ui, MainWindow = init()
     print("Waiting for anoboy.online")
-    ui.updateList(MainWindow,webScrapper.recent())
+    Controller.updateList(ui, webScrapper.recent(),MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
