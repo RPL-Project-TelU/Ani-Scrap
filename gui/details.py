@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from function import webScrapper
+from gui import Controller
 import os
 
 class Ui_Form(object):
@@ -132,8 +133,7 @@ class Ui_Form(object):
         self.btn_play.setText(_translate("Form", "Play"))
 
     def playEpisode(self, number:int, anime):
-        link = webScrapper.selectMirror(anime.eplist[number])
-        os.system("mpv "+link)
+        Controller.playEpisode(number,anime)
 
 # if __name__ == "__main__":
 #     import sys
