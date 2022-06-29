@@ -1,7 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flasgger import Swagger, LazyString, LazyJSONEncoder
 from flasgger import swag_from
-
+from function import webScrapper
 app = Flask(__name__)
 app.json_encoder = LazyJSONEncoder
 
@@ -22,12 +22,6 @@ swagger_config = {
             "rule_filter": lambda rule: True,
             "model_filter": lambda tag: True,
         },
-        {
-            "endpoint": 'kaasi',
-            "route": '/kaasi.json',
-            "rule_filter": lambda rule: True,
-            "model_filter": lambda tag: True,
-        }
     ],
     "static_url_path": "/flasgger_static",
     "swagger_ui": True,
@@ -36,18 +30,18 @@ swagger_config = {
 swagger = Swagger(app, template=swagger_template,             
                   config=swagger_config)
 
-@swag_from("get_data.yml", methods=['GET'])
-@app.route("/get-anime")
-def get_anime():
-    return "some anime"
+@swag_from("API/search_anime.yml", methods=['GET'])
+@app.route("/search-anime/<query>")
+def get_anime(query):
+    return 
 
-@swag_from("get_data.yml", methods=['GET'])
-@app.route("/get-episode")
+@swag_from("API/get_anime.yml", methods=['GET'])
+@app.route("/get-episode/<anime>")
 def get_episode():
     return "episode link"
 
-@swag_from("get_data.yml", methods=['GET'])
-@app.route("/get-video")
+@swag_from("API/get_video_uservideo.yml", methods=['GET'])
+@app.route("/get-video-uservideo/<episode>")
 def get_video():
     return "video link"
 

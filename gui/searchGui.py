@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from GUI import details
+from gui import details, Controller
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -28,7 +28,7 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def addAnimeBox(self,anime):
+    def addAnimeBox(self,MainWindow,anime):
         frameAnime = QtWidgets.QFrame(self.gridLayoutWidget)
         frameAnime.setMaximumSize(QtCore.QSize(450, 150))
         frameAnime.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -94,25 +94,7 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Search"))
 
     def frameClick(self,anime):
-        print(anime.title)
-        self.Details = QtWidgets.QWidget()
-        ui = details.Ui_Form()
-        ui.setupUi(self.Details, anime)
-        self.Details.show()
+        Controller.showDetail(self,anime)
 
     def updateList(self, animes):
-        x, y = 0, 0
-        for i in range(8):
-            try:
-                anime = animes[i]
-                print(anime.title)
-                animeBox = self.addAnimeBox(anime)
-                self.gridAnimeList.addWidget(animeBox,x,y,1,1)
-                if y == 1:
-                    y = 0
-                    x += 1
-                else:
-                    y+=1
-            except:
-                continue
-
+        Controller.updateList(self,animes)

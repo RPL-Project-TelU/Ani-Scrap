@@ -5,7 +5,6 @@ from function.objectClass import Anime
 from function import Scrapper
 base_url = "https://anoboy.online/"
 
-
 def querySearch(query:str) -> str:
     r = Scrapper.parse_web(base_url+"search/"+query)
     c = r.findAll("article")
@@ -20,16 +19,14 @@ def querySearch(query:str) -> str:
         img = Scrapper.downloadFile(tag.find('img')['src'], r"tmp/")
         animes.append(Anime(tag['title'], status, episode, tag["href"], r"tmp/"+img))
     return animes
-    
-# For cli only
-# def selectEpisode(animeUrl:str)->str:
-#     r = Scrapper.parse_web(animeUrl)
-#     epList = r.find('div',class_="eplister")
-#     episodes = epList.findAll('li')
-#     x = int(input("Pilih episode [1-{}] : ".format(len(episodes))))
-#     return episodes[x-1].find('a')['href']
 
-# CLI only
+def selectEpisode(animeUrl:str)->str:
+    r = Scrapper.parse_web(animeUrl)
+    epList = r.find('div',class_="eplister")
+    episodes = epList.findAll('li')
+    x = int(input("Pilih episode [1-{}] : ".format(len(episodes))))
+    return episodes[x-1].find('a')['href']
+
 def selectMirror(epUrl:str)->str:
     r = Scrapper.parse_web(epUrl)
     # print(r)
