@@ -1,0 +1,22 @@
+Mengembalikan link video yang akan di play.
+---
+tags:
+  - anime
+parameters:
+  - in: path
+    name: episode
+    type: string
+    required: true
+responses:
+  200:
+    description: Link streaming
+    schema:
+      id: uservideo
+      properties:
+        episode:
+          type: string
+          description: Link play video
+400:
+  description: Bad Request
+500:
+  description: Internal Server Error
