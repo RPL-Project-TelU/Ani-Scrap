@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets
 from fn import APICall
-from gui import gui, searchGui, details
+from gui import gui, searchGui, details, config
 from os import system
+import json
 
 def playEpisode(number:int, anime):
     source = "uservideo"
@@ -42,3 +43,17 @@ def updateList(container, animes, MainWindow=None):
                 y+=1
         except:
             continue
+def openConfig(container):
+    container.config = QtWidgets.QWidget()
+    ui = config.Ui_Config()
+    ui.setupUi(container.config)
+    container.config.show()
+
+def saveConfig(container):
+    config = dict()
+    config["player"] = container.combo_player.currentText()
+    config["discordRPC"] = container.cbox_discord.isChecked()
+    config["mirror"] = container.combo_mirror.currentText()
+    with open('./config.json','w',encoding='utf-8') as fileConfig:
+        fileConfig.write(json.dumps(config))
+    container.btn_save.setEnabled(False)

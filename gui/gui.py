@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-from gui import searchGui, details, Controller
+from gui import searchGui, details, Controller, config
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -51,8 +51,35 @@ class Ui_MainWindow(object):
         self.gridAnimeList.setContentsMargins(25, 25, 25, 25)
         self.gridAnimeList.setObjectName("gridAnimeList")
 
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 1000, 27))
+        self.menuBar.setObjectName("menuBar")
+        self.menuAnime = QtWidgets.QMenu(self.menuBar)
+        self.menuAnime.setObjectName("menuAnime")
+        self.menuAnilist = QtWidgets.QMenu(self.menuBar)
+        self.menuAnilist.setObjectName("menuAnilist")
+        MainWindow.setMenuBar(self.menuBar)
+        self.actionContinue_Watching = QtWidgets.QAction(MainWindow)
+        self.actionContinue_Watching.setObjectName("actionContinue_Watching")
+        self.actionOpen_History = QtWidgets.QAction(MainWindow)
+        self.actionOpen_History.setObjectName("actionOpen_History")
+        self.actionOpen_Anilist_Setting = QtWidgets.QAction(MainWindow)
+        self.actionOpen_Anilist_Setting.setObjectName("actionOpen_Anilist_Setting")
+        self.actionConfiguration = QtWidgets.QAction(MainWindow)
+        self.actionConfiguration.setObjectName("actionConfiguration")
+        self.actionmyList = QtWidgets.QAction(MainWindow)
+        self.actionmyList.setObjectName("actionmyList")
+        self.menuAnime.addAction(self.actionContinue_Watching)
+        self.menuAnime.addAction(self.actionOpen_History)
+        self.menuAnime.addAction(self.actionConfiguration)
+        self.menuAnilist.addAction(self.actionOpen_Anilist_Setting)
+        self.menuAnilist.addAction(self.actionmyList)
+        self.menuBar.addAction(self.menuAnime.menuAction())
+        self.menuBar.addAction(self.menuAnilist.menuAction())
+
         MainWindow.setCentralWidget(self.centralwidget)
 
+        self.actionConfiguration.triggered.connect(lambda: self.openConfig())
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -122,6 +149,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "AniScrap"))
         self.textEdit.setPlaceholderText(_translate("MainWindow", "Cari Anime"))
         self.pushButton.setText(_translate("MainWindow", "Cari"))
+        self.menuAnime.setTitle(_translate("MainWindow", "Anime"))
+        self.menuAnilist.setTitle(_translate("MainWindow", "Anilist"))
+        self.actionContinue_Watching.setText(_translate("MainWindow", "Continue Watching"))
+        self.actionOpen_History.setText(_translate("MainWindow", "Open History"))
+        self.actionOpen_Anilist_Setting.setText(_translate("MainWindow", "Open Anilist Setting"))
+        self.actionConfiguration.setText(_translate("MainWindow", "Configuration"))
+        self.actionmyList.setText(_translate("MainWindow", "My List"))
 
     def frameClick(self,anime):
         Controller.showDetail(self,anime)
@@ -131,3 +165,6 @@ class Ui_MainWindow(object):
 
     def updateList(self,MainWindow, animes):
         Controller.updateList(self,animes,MainWindow)
+
+    def openConfig(self):
+        Controller.openConfig(self)
