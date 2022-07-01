@@ -45,12 +45,11 @@ class Ui_Config(object):
     def retranslateUi(self, Config):
         with open('./config.json','r',encoding='utf-8') as config:
             configFile = json.load(config)
-    
         _translate = QtCore.QCoreApplication.translate
         Config.setWindowTitle(_translate("Config", "Configuration"))
         self.lbl_mediaplayer.setText(_translate("Config", "Media Player"))
-        self.combo_player.setItemText(0, _translate("Config", "MPV"))
-        self.combo_player.setItemText(1, _translate("Config", "VLC"))
+        self.combo_player.setItemText(0, _translate("Config", "mpv"))
+        self.combo_player.setItemText(1, _translate("Config", "vlc"))
         # insert enum here
         # self.combo_player.setCurrentIndex()
         self.cbox_discord.setChecked(configFile["discordRPC"])

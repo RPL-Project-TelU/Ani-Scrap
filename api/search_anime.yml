@@ -25,6 +25,8 @@ responses:
               type: string
             thumb:
               type: string
+            thumb_link:
+              type: string
 400:
   description: Bad Request
 500:

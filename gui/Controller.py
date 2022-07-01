@@ -2,15 +2,21 @@ from PyQt5 import QtWidgets
 from fn import APICall
 from gui import gui, searchGui, details, config
 from os import system
-import json
+from pypresence import Presence
+
+import json, time
 
 def playEpisode(number:int, anime):
-    source = "uservideo"
-    player = "mpv"
+    if RPC:
+        RPC.update(state=anime.title, details="Watching anime", start=time.time(),large_image=anime.thumb_link,large_text="Episode "+str(number)+" of "+anime.eps)
+    source = configFile["mirror"]
+    player = configFile["player"]
     links = APICall.getMirror(anime.eplist[number])
     system(player+" "+links[source])
 
 def showDetail(container,anime):
+    if RPC:
+        RPC.update(state=anime.title, details="Checking anime", large_image=anime.thumb_link)
     print(anime.title)
     container.Details = QtWidgets.QWidget()
     ui = details.Ui_Form()
@@ -23,9 +29,13 @@ def btnSearchClick(container):
     ui = searchGui.Ui_Form()
     ui.setupUi(container.Search)
     ui.updateList(APICall.searchAnime(query))
+    if RPC:
+        RPC.update(state="Searching "+query, details="Browsing anime")
     container.Search.show()
 
 def updateList(container, animes, MainWindow=None):
+    if RPC:
+        RPC.update(state="In Main Menu", details="Browsing anime")
     x, y = 0, 0
     for i in range(8):
         try:
@@ -44,6 +54,8 @@ def updateList(container, animes, MainWindow=None):
         except:
             continue
 def openConfig(container):
+    if RPC:
+        RPC.update(state="In Setting", details="Configuring some Configuration")
     container.config = QtWidgets.QWidget()
     ui = config.Ui_Config()
     ui.setupUi(container.config)
@@ -57,3 +69,19 @@ def saveConfig(container):
     with open('./config.json','w',encoding='utf-8') as fileConfig:
         fileConfig.write(json.dumps(config))
     container.btn_save.setEnabled(False)
+
+global configFile, RPC
+
+with open('./config.json','r',encoding='utf-8') as configReader:
+    configFile = json.load(configReader)
+        
+if configFile["discordRPC"]:
+    try:
+        client_id = "992433245197176874"  
+        RPC = Presence(client_id=client_id)
+        RPC.connect()
+    except:
+        RPC = False
+        print("Can't Connect to discord")
+else:
+    RPC = False
