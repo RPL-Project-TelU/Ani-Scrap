@@ -7,7 +7,7 @@ base_url = "https://anoboy.online/"
 
 # querySearch adalah fungsi untuk mencari anime
 # Masukan berupa string judul anime yang diinginkan
-# Keluaran berupa objek dari anime
+# Keluaran berupa list objek dari anime
 def querySearch(query:str) -> list():
     r = Scrapper.parse_web(base_url+"search/"+query)
     c = r.findAll("article")
