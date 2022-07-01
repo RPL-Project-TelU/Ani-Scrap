@@ -8,22 +8,16 @@ from fn.objectClass import Anime
 
 import json, time
 
-def jsontoAnime(js:json)->list():
-    animes = []
-    for k in js:
-        anime = Anime(k, js[k]['status'], js[k]['episode'], js[k]['link'], js[k]['thumb'], js[k]['thumb_link'])
-        anime.desc = js[k]['desc']
-        anime.eplist = js[k]['eplist']
-        anime.eps = js[k]['eps']
-        anime.lastwatch = js[k]['lastwatch']
-        animes.append(anime)
-    return animes
 
+# Fungsi untuk menkonversi atau parsing json menjadi objek anime
+# Kebalikan dari fungsi jsontoAnime
+# Fungsi ini akan memparsing objek anime menjadi dictionary
 def animeToDict(anime:Anime)->dict():
     aniJs = dict()
     aniJs[anime.objName] = {"title" : anime.title, "link": anime.link, "thumb": anime.thumb, "thumb_link": anime.thumb_link, "status": anime.status, "desc": anime.desc, "eplist": anime.eplist, "eps": anime.eps, "lastwatch": anime.lastwatch}
     return aniJs
 
+# Fungsi untuk menambahkan objek anime kedalam history
 def addToHistory(anime:Anime):
     try:
         with open('./history.json','r',encoding='utf-8') as histoReader:
@@ -35,6 +29,8 @@ def addToHistory(anime:Anime):
         with open('./history.json','w',encoding='utf-8') as histoWriter:
             histoWriter.write(json.dumps(animeToDict(anime)))
 
+# Fungsi untuk memutar suatu episode anime
+# Setelah diputar maka akan dimasukkan ke dalam history
 def playEpisode(number:int, anime:Anime):
     if RPC:
         RPC.update(state=anime.title, details="Watching anime", start=time.time(),large_image=anime.thumb_link,large_text="Episode "+str(number)+" of "+anime.eps)
@@ -52,7 +48,7 @@ def playEpisode(number:int, anime:Anime):
     print("Playing...")
     system(player+" "+links[source])
 
-
+# Fungsi untuk membuka widget pencarian anime
 def showDetail(container,anime:Anime):
     if RPC:
         RPC.update(state=anime.title, details="Checking anime", large_image=anime.thumb_link)
@@ -62,6 +58,7 @@ def showDetail(container,anime:Anime):
     ui.setupUi(container.Details, anime)
     container.Details.show()
 
+# Fungsi yang aktif jika tombol search di klik di gui
 def btnSearchClick(container):
     query = container.textEdit.toPlainText()
     container.Search = QtWidgets.QWidget()
@@ -72,6 +69,7 @@ def btnSearchClick(container):
         RPC.update(state="Searching "+query, details="Browsing anime")
     container.Search.show()
 
+# Fungsi yang berguna untuk menambah objek anime kedalam UI atau frame box yang maximal berjumlah 8
 def updateList(container, animes, MainWindow=None):
     if RPC:
         RPC.update(state="In Main Menu", details="Browsing anime")
@@ -92,6 +90,8 @@ def updateList(container, animes, MainWindow=None):
                 y+=1
         except:
             continue
+
+# Fungsi untuk membuka widget config
 def openConfig(container):
     if RPC:
         RPC.update(state="In Setting", details="Configuring some Configuration")
@@ -100,6 +100,7 @@ def openConfig(container):
     ui.setupUi(container.config)
     container.config.show()
 
+# Fungsi untuk menyimpan cofigurasi yang sudah diatur di widget config
 def saveConfig(container):
     config = dict()
     config["player"] = container.combo_player.currentText()
@@ -109,6 +110,7 @@ def saveConfig(container):
         fileConfig.write(json.dumps(config))
     container.btn_save.setEnabled(False)
 
+# Fungsi untuk membuka widget history
 def openHistory(container):
     if RPC:
         RPC.update(state="Checking History", details="Looking back at the past")
@@ -117,6 +119,7 @@ def openHistory(container):
     ui.setupUi(container.history)
     container.history.show()    
 
+# Fungsi untuk membaca history.json dan menampilkan nya kedalam widget history
 def loadItem(container):
     global listofAnime
     with open('./history.json','r',encoding='utf-8') as histoReader:
@@ -127,6 +130,7 @@ def loadItem(container):
         item.setText(i.title)
         container.list_history.addItem(item)
 
+# Fungsi untuk menkonversi atau parsing json menjadi objek anime
 def jsontoAnime(js:json)->list():
     animes = []
     for k in js:
@@ -137,6 +141,7 @@ def jsontoAnime(js:json)->list():
         animes.append(anime)
     return animes
 
+# Fungsi untuk mendektsi perubahan item pada widget history, jika selected item berubah maka akan mengubah juga label yang ada di gui tersebut
 def itemChanged(container,idx):
     global listofAnime
     container.lbl_outTitle.setText(listofAnime[idx].title)
@@ -147,6 +152,7 @@ def itemChanged(container,idx):
     container.txt_sinopsis.setPlainText(listofAnime[idx].desc)
     container.lbl_outDate.setText(listofAnime[idx].lastwatch)
 
+# Fungsi untuk menampilkan widget konfigurasi anilist
 def openAnilistSetting(container):
     if RPC:
         RPC.update(state="Setting up anilist", details="Connecting...")
@@ -155,9 +161,11 @@ def openAnilistSetting(container):
     ui.setupUi(container.anilistSetting)
     container.anilistSetting.show()      
 
+# Fungsi untuk mengembalikan objek anime dari index pada widget history
 def getAnimeIndex(container):
     return listofAnime[container.list_history.currentRow()]
 
+# Fungsi untuk menyimpan konfigurasi anilist
 def saveAniConfig(container):
     aniCfg = dict()
     aniCfg['token'] = container.textEdit_2.toPlainText()
@@ -167,12 +175,14 @@ def saveAniConfig(container):
         aniWriter.write(json.dumps(aniCfg))
     container.btn_save.setEnabled(False)
 
+# Fungsi untuk melanjutkan anime yang terakhir kali di tonton
 def continueWatching(container):
     with open('./history.json','r',encoding='utf-8') as histoReader:
         history = json.load(histoReader)
     animes = jsontoAnime(history)
     showDetail(container, animes[-1])
 
+# INIT kode dibawah akan selalu dijalankan ketika module Controller.py dipanggil
 global configFile, RPC, listofAnime
 
 with open('./config.json','r',encoding='utf-8') as configReader:
