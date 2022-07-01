@@ -55,7 +55,7 @@ class Ui_Form(object):
         self.sbox_eps.setMinimum(1)
         self.sbox_eps.setMaximum(len(anime.eplist))
         self.sbox_eps.setObjectName("sbox_eps")
-        self.sbox_eps.setValue(len(anime.eplist))
+        self.sbox_eps.setValue(int(anime.eps))
         self.epsLayout.addWidget(self.sbox_eps)
         self.btn_epsSel = QtWidgets.QPushButton(self.gridLayoutWidget, clicked = lambda: self.playEpisode(int(self.sbox_eps.text())-1, anime))
         self.btn_epsSel.setMinimumSize(QtCore.QSize(200, 30))

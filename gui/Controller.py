@@ -145,6 +145,7 @@ def itemChanged(container,idx):
     container.lbl_outStatus.setText(listofAnime[idx].status)
     container.lbl_img.setPixmap(QtGui.QPixmap(listofAnime[idx].thumb))
     container.txt_sinopsis.setPlainText(listofAnime[idx].desc)
+    container.lbl_outDate.setText(listofAnime[idx].lastwatch)
 
 def openAnilistSetting(container):
     if RPC:
@@ -165,6 +166,12 @@ def saveAniConfig(container):
     with open('./anilist.json','w',encoding='utf-8') as aniWriter:
         aniWriter.write(json.dumps(aniCfg))
     container.btn_save.setEnabled(False)
+
+def continueWatching(container):
+    with open('./history.json','r',encoding='utf-8') as histoReader:
+        history = json.load(histoReader)
+    animes = jsontoAnime(history)
+    showDetail(container, animes[-1])
 
 global configFile, RPC, listofAnime
 
