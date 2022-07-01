@@ -1,7 +1,22 @@
+import sys,json
+
 from PyQt5 import QtWidgets
-import sys
 from gui import gui, Controller
-from fn import webScrapper
+from fn import webScrapper, APICall
+from pypresence import Presence
+
+def firstSetup():
+    try:
+        with open('./config.json','r',encoding='utf-8') as config:
+            return json.load(config)
+    except:
+        with open('./config.json','w',encoding='utf-8') as config:
+            setup = dict()
+            setup["player"] = "mpv"
+            setup["discordRPC"] = True
+            setup["mirror"] = "uservideo"
+            config.write(json.dumps(setup))
+            return setup
 
 def init():
     app = QtWidgets.QApplication(sys.argv)
@@ -11,9 +26,9 @@ def init():
     return app, ui, MainWindow
     
 if __name__ == "__main__":
-    # Setup
+    configFile = firstSetup()
     app, ui, MainWindow = init()
     print("Waiting for anoboy.online")
-    Controller.updateList(ui, webScrapper.recent(),MainWindow)
+    # Controller.updateList(ui, APICall.searchAnime(" "),MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

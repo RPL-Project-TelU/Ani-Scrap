@@ -50,22 +50,24 @@ def selectMirror(epUrl:str)->str:
     page = Scrapper.parse_web(link)
     return page.find('iframe')['src']
 
+
 # recent berfungsi untuk mengambil anime yang baru diupload
 # Keluaran berupa list dari objek anime
-def recent()->Anime:
-    r = Scrapper.parse_web(base_url)
-    c = r.findAll("article")
-    animes = []
-    for i in range(len(c)):
-        status = re.findall(r"<span>.* Status : (.*).*?<",str(c[i]))[0]
-        try:
-            episode = re.findall(r"<span>.* Episode (\d*)",str(c[i]))[0]
-        except:
-            episode = re.findall(r"<span>.* Episode.*: (.*).*?<",str(c[i]))[0]        
-        tag = c[i].find('a')
-        img = Scrapper.downloadFile(tag.find('img')['src'], r"tmp/")
-        animes.append(Anime(tag['title'],status, episode, tag["href"], r"tmp/"+img))
-    return animes
+# def recent()->Anime:
+#     r = Scrapper.parse_web(base_url)
+#     c = r.findAll("article")
+#     animes = []
+#     for i in range(len(c)):
+#         status = re.findall(r"<span>.* Status : (.*).*?<",str(c[i]))[0]
+#         try:
+#             episode = re.findall(r"<span>.* Episode (\d*)",str(c[i]))[0]
+#         except:
+#             episode = re.findall(r"<span>.* Episode.*: (.*).*?<",str(c[i]))[0]        
+#         tag = c[i].find('a')
+#         img = Scrapper.downloadFile(tag.find('img')['src'], r"tmp/")
+#         animes.append(Anime(tag['title'],status, episode, tag["href"], r"tmp/"+img))
+#     return animes
+
 
 # getDetails adalah fungsi untuk menambahkan list episode dan
 # sinopsis ke dalam objek anime

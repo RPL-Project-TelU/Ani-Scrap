@@ -8,7 +8,7 @@ def searchAnime(query:str)->list():
     r = api_get(flassger_url+"/search-anime/"+query)
     json = r.json()
     for k in json:
-        animes.append(Anime(k, json[k]['status'], json[k]['episode'], json[k]['link'], json[k]['thumb']))
+        animes.append(Anime(k, json[k]['status'], json[k]['episode'], json[k]['link'], json[k]['thumb'], json[k]['thumb_link']))
     return animes
 
 def getMirror(epUrl:str)->dict():
