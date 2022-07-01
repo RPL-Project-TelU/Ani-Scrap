@@ -10,9 +10,11 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from GUI import details
-
+from dcrpc import activeTrigger
 class Ui_Form(object):
     def setupUi(self, Form):
+        # searchState()
+        activeTrigger('h')
         Form.setObjectName("Form")
         Form.resize(1000, 800)
         Form.setMinimumSize(QtCore.QSize(1000, 800))

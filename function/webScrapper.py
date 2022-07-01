@@ -54,8 +54,11 @@ def recent()->Anime:
         animes.append(Anime(tag['title'],status, episode, tag["href"], r"tmp/"+img))
     return animes
 
+# return anime with appended list of episodes
 def getDetails(anime:Anime)->Anime:
     r = Scrapper.parse_web(anime.link)
+    
+    print("getDetails : ")
     anime.desc = r.find('div',class_="entry-content").text
     for i in reversed(r.find("div",class_="eplister").findAll("a")):
         anime.eplist.append(i['href'])

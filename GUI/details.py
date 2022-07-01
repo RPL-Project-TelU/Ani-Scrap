@@ -9,11 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from function import webScrapper
-import os
-
+from function import webScrapper,Scrapper
+import os,re
+# from dcrpc import DetailsState,RPC
+from function.objectClass import Anime
 class Ui_Form(object):
     def setupUi(self, Form, anime):
+        # DetailsState()
         anime = webScrapper.getDetails(anime)
         Form.setObjectName("Form")
         Form.resize(1000, 800)
@@ -132,7 +134,16 @@ class Ui_Form(object):
         self.btn_play.setText(_translate("Form", "Play"))
 
     def playEpisode(self, number:int, anime):
+        #episode+title
+        
         link = webScrapper.selectMirror(anime.eplist[number])
+        print(link)
+        # episodes = Scrapper.parse_web(link)['anime']['episodes']
+        # print(episodes)
+        # try:
+        #     RPC.update(state=episodes['anime']['name'] + " ("+ re.findall(r' (\d*)',Anime.eplist['episode']['name'])[0] +" of "+str(len(epsData['episodes'])) + ")", details="Watching anime", start=time.time(),large_image="https://www2.kickassanime.ro/uploads/"+epsData['anime']['image'],large_text=epsData['anime']['name'])
+        # except:
+        #     RPC.update(state=episodes['anime']['name'], details="Watching anime", start=time.time())
         os.system("mpv "+link)
 
 # if __name__ == "__main__":

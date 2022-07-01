@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets
 import sys
 from GUI import gui
 from function import webScrapper
+# import dcrpc
 
 def init():
     app = QtWidgets.QApplication(sys.argv)

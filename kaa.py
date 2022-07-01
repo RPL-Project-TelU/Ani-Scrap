@@ -35,7 +35,9 @@ def recently_uploaded():
     return js['animeList']['sub']
 
 def select_episode(link,direct=False,eps=None):
-    episodes = parse_appData(link)['anime']['episodes']
+    episodes = parse_appData(link)['anime']['episodes'] #return what?
+    # print("episodes: ",episodes) #isinya json
+    # print(link)
     if direct:
         x = eps # NOT RELIABLE BECAUSE SOME ANIME HAVE 0 EPISODE IN THE LIST!
     else:
