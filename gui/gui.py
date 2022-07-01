@@ -83,6 +83,7 @@ class Ui_MainWindow(object):
         self.actionConfiguration.triggered.connect(lambda: self.openConfig())
         self.actionOpen_History.triggered.connect(lambda: self.openHistory())
         self.actionOpen_Anilist_Setting.triggered.connect(lambda: self.openAnilistSetting())
+        self.actionContinue_Watching.triggered.connect(lambda: self.continueWatching())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -178,3 +179,6 @@ class Ui_MainWindow(object):
 
     def openAnilistSetting(self):
         Controller.openAnilistSetting(self)
+
+    def continueWatching(self):
+        Controller.continueWatching(self)

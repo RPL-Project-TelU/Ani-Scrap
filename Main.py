@@ -29,6 +29,6 @@ if __name__ == "__main__":
     configFile = firstSetup()
     app, ui, MainWindow = init()
     print("Waiting for anoboy.online")
-    Controller.updateList(ui, APICall.searchAnime(" "),MainWindow)
+    # Controller.updateList(ui, APICall.searchAnime(" "),MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
