@@ -8,6 +8,7 @@ class Anime:
     desc:str = ""
     eplist:list = None
     eps:str = ""
+    lastwatch:str = ""
 
     def __new__(cls, title:str,status:str,eps:str,link:str,thumb:str,thumbLink:str):
         anime = object.__new__(cls)
@@ -16,7 +17,7 @@ class Anime:
     def __init__(self, title:str,status:str,eps:str,link:str,thumb:str,thumbLink:str):
         if self.eplist is None:
             self.eplist = []
-        self.objName = link[29:]
+        self.objName = link[28:]
         self.title = title.replace("Nonton anime ", "").replace(" Sub Indo", "")
         self.status = status
         self.eps = eps

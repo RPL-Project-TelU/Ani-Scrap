@@ -11,7 +11,7 @@
 import sys, json
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from gui import searchGui, details, Controller, config
+from gui import Controller
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -81,6 +81,9 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.actionConfiguration.triggered.connect(lambda: self.openConfig())
+        self.actionOpen_History.triggered.connect(lambda: self.openHistory())
+        self.actionOpen_Anilist_Setting.triggered.connect(lambda: self.openAnilistSetting())
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -169,3 +172,9 @@ class Ui_MainWindow(object):
 
     def openConfig(self):
         Controller.openConfig(self)
+    
+    def openHistory(self):
+        Controller.openHistory(self)
+
+    def openAnilistSetting(self):
+        Controller.openAnilistSetting(self)
