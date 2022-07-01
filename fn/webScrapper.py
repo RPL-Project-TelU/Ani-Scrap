@@ -1,12 +1,12 @@
 import re, json
 from sys import prefix
 from html import unescape
-from function.objectClass import Anime
-from function import Scrapper
+from fn.objectClass import Anime
+from fn import Scrapper
 base_url = "https://anoboy.online/"
 
 
-def querySearch(query:str) -> str:
+def querySearch(query:str) -> list():
     r = Scrapper.parse_web(base_url+"search/"+query)
     c = r.findAll("article")
     animes = []
@@ -56,12 +56,11 @@ def recent()->Anime:
         animes.append(Anime(tag['title'],status, episode, tag["href"], r"tmp/"+img))
     return animes
 
-def getDetails(anime:Anime)->Anime:
+def getDetails(anime:Anime):
     r = Scrapper.parse_web(anime.link)
     anime.desc = r.find('div',class_="entry-content").text
     for i in reversed(r.find("div",class_="eplister").findAll("a")):
         anime.eplist.append(i['href'])
-    return anime
 
 
 

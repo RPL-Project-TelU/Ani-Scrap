@@ -1,11 +1,13 @@
 from PyQt5 import QtWidgets
-from function import webScrapper
+from fn import APICall
 from gui import gui, searchGui, details
 from os import system
 
 def playEpisode(number:int, anime):
-    link = webScrapper.selectMirror(anime.eplist[number])
-    system("mpv "+link)
+    source = "uservideo"
+    player = "mpv"
+    links = APICall.getMirror(anime.eplist[number])
+    system(player+" "+links[source])
 
 def showDetail(container,anime):
     print(anime.title)
@@ -19,7 +21,7 @@ def btnSearchClick(container):
     container.Search = QtWidgets.QWidget()
     ui = searchGui.Ui_Form()
     ui.setupUi(container.Search)
-    ui.updateList(webScrapper.querySearch(query))
+    ui.updateList(APICall.searchAnime(query))
     container.Search.show()
 
 def updateList(container, animes, MainWindow=None):

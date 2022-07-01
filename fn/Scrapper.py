@@ -12,6 +12,12 @@ def decode_base64(text:str,lossless:bool=False)->str:
     message_bytes = base64.b64decode(base64_bytes)
     return message_bytes.decode('ascii')
 
+def encode_base64(text:str)->str:
+    message_bytes = text.encode('ascii')
+    base64_bytes = base64.b64encode(message_bytes)
+    base64_message = base64_bytes.decode('ascii')
+    return base64_message.replace("=", "")
+
 def parse_web(url:str,headers:str=None,raw:bool=False):
     try:
         scraper = cloudscraper.create_scraper()

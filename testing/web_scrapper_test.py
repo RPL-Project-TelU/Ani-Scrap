@@ -1,5 +1,5 @@
 import unittest
-import function.Scrapper as scrap
+import fn.Scrapper as scrap
 
 class TestStringMethods(unittest.TestCase):
 
