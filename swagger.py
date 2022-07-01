@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flasgger import Swagger, LazyString, LazyJSONEncoder
 from flasgger import swag_from
-from function import webScrapper
+from api import APIController
 app = Flask(__name__)
 app.json_encoder = LazyJSONEncoder
 
@@ -30,20 +30,20 @@ swagger_config = {
 swagger = Swagger(app, template=swagger_template,             
                   config=swagger_config)
 
-@swag_from("API/search_anime.yml", methods=['GET'])
+@swag_from("api/search_anime.yml", methods=['GET'])
 @app.route("/search-anime/<query>")
 def get_anime(query):
-    return 
+    return APIController.querySearch(query)
 
-@swag_from("API/get_anime.yml", methods=['GET'])
-@app.route("/get-episode/<anime>")
-def get_episode():
-    return "episode link"
+@swag_from("api/get_anime.yml", methods=['GET'])
+@app.route("/get-anime/<anime>") # anime disini adalah link yang di encode ke base64
+def get_episode(anime):
+    return APIController.getDetails(anime)
 
-@swag_from("API/get_video_uservideo.yml", methods=['GET'])
-@app.route("/get-video-uservideo/<episode>")
-def get_video():
-    return "video link"
+@swag_from("api/get_video.yml", methods=['GET'])
+@app.route("/get-video/<episode>")
+def get_video(episode):
+    return APIController.selectMirror(episode)
 
 if __name__ == '__main__':
     app.run()

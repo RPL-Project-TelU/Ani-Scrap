@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
 import sys
 from gui import gui, Controller
-from function import webScrapper
+from fn import webScrapper
 
 def init():
     app = QtWidgets.QApplication(sys.argv)

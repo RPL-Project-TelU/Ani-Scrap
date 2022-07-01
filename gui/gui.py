@@ -11,7 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 from gui import searchGui, details, Controller
-from function import webScrapper
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

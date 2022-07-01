@@ -9,13 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from function import webScrapper
+from fn import APICall
 from gui import Controller
 import os
 
 class Ui_Form(object):
     def setupUi(self, Form, anime):
-        anime = webScrapper.getDetails(anime)
+        APICall.getDetails(anime)
         Form.setObjectName("Form")
         Form.resize(1000, 800)
         Form.setMinimumSize(QtCore.QSize(1000, 800))
