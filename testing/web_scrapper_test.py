@@ -15,5 +15,9 @@ class TestStringMethods(unittest.TestCase):
     #     with self.assertRaises(TypeError):
     #         s.split(2)
 
+    def test_querySearch(self):
+    judul = 'Mahoutsukai Reimeiki'
+    self.assertEqual(judul,'')
+    
 if __name__ == '__main__':
     unittest.main()

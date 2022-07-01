@@ -12,12 +12,16 @@ def decode_base64(text:str,lossless:bool=False)->str:
     message_bytes = base64.b64decode(base64_bytes)
     return message_bytes.decode('ascii')
 
+# encode_base64 adalah fungsi untuk me-encode dari base 64 ke text
+# masukan berupa base64
+# keluaran berupa string
 def encode_base64(text:str)->str:
     message_bytes = text.encode('ascii')
     base64_bytes = base64.b64encode(message_bytes)
     base64_message = base64_bytes.decode('ascii')
     return base64_message.replace("=", "")
 
+# parse_web adalah fungsi untuk 
 def parse_web(url:str,headers:str=None,raw:bool=False):
     try:
         scraper = cloudscraper.create_scraper()
@@ -28,6 +32,7 @@ def parse_web(url:str,headers:str=None,raw:bool=False):
         return page
     return BeautifulSoup(page, "html.parser")
 
+# api_get adalah fungsi untuk
 def api_get(url:str,json:str=None,headers:str=None,data:str=None,post:bool=False)->requests.Response:
     try:
         scraper = cloudscraper.create_scraper()
@@ -42,10 +47,12 @@ def api_get(url:str,json:str=None,headers:str=None,data:str=None,post:bool=False
             page = requests.get(url,headers=headers,json=json,data=data)
     return page
 
+# urlEncode adalah fungsi untuk
 def urlEncode(url:str, data:dict)->str:
     param = urllib.parse.urlencode(data)
     return url+"?"+param
 
+# downloadFile adalah fungsi untuk mengunduh file 
 def downloadFile(url,path):
     try:
         fn = re.findall(r".*\/(.*.jpg|.*.png)", url)[0]
