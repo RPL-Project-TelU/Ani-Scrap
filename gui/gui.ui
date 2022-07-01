@@ -260,28 +260,30 @@
      <height>27</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuHistory">
+   <widget class="QMenu" name="menuAnime">
     <property name="title">
      <string>Anime</string>
     </property>
+    <addaction name="actionContinue_Watching"/>
     <addaction name="actionOpen_History"/>
-    <addaction name="actionOpen_History_2"/>
+    <addaction name="actionConfiguration"/>
    </widget>
    <widget class="QMenu" name="menuAnilist">
     <property name="title">
      <string>Anilist</string>
     </property>
     <addaction name="actionOpen_Anilist_Setting"/>
+    <addaction name="actionmyList"/>
    </widget>
-   <addaction name="menuHistory"/>
+   <addaction name="menuAnime"/>
    <addaction name="menuAnilist"/>
   </widget>
-  <action name="actionOpen_History">
+  <action name="actionContinue_Watching">
    <property name="text">
     <string>Continue Watching</string>
    </property>
   </action>
-  <action name="actionOpen_History_2">
+  <action name="actionOpen_History">
    <property name="text">
     <string>Open History</string>
    </property>
@@ -289,6 +291,16 @@
   <action name="actionOpen_Anilist_Setting">
    <property name="text">
     <string>Open Anilist Setting</string>
+   </property>
+  </action>
+  <action name="actionConfiguration">
+   <property name="text">
+    <string>Configuration</string>
+   </property>
+  </action>
+  <action name="actionmyList">
+   <property name="text">
+    <string>My List</string>
    </property>
   </action>
  </widget>

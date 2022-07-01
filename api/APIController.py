@@ -18,7 +18,7 @@ def querySearch(query:str) -> dict():
         tag = c[i].find('a')
         img = Scrapper.downloadFile(tag.find('img')['src'], r"tmp/")
         # animes.append(Anime(tag['title'], status, episode, tag["href"], r"tmp/"+img))
-        animes[tag['title']] = {"status": status, "episode": episode, "link": tag["href"], "thumb": r"tmp/"+img}
+        animes[tag['title']] = {"status": status, "episode": episode, "link": tag["href"], "thumb": r"tmp/"+img, "thumb_link": tag.find('img')['src']}
     return animes
 
 def selectMirror(epUrl:str)->dict():
