@@ -10,10 +10,16 @@ class Anime:
     eps:str = ""
     lastwatch:str = ""
 
+    # __new__ adalah fungsi untuk membuat objek baru
+    # Masukkan berupa identitas anime yang baru
+    # Keluaran berupa lisst object anime yang baru
     def __new__(cls, title:str,status:str,eps:str,link:str,thumb:str,thumbLink:str):
         anime = object.__new__(cls)
         return anime
-
+        
+    # __init__ adalah fungsi untuk membuat objek 
+    # Masukkan berupa parameter  yang berisi identitas anime
+    # Keluaran berupa yang list objek anime
     def __init__(self, title:str,status:str,eps:str,link:str,thumb:str,thumbLink:str):
         if self.eplist is None:
             self.eplist = []
