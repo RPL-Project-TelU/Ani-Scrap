@@ -1,0 +1,147 @@
+classDiagram
+    class Main {
+      +init()
+      +firstSetup()
+    }
+    class swagger {
+      +get_anime(String query) Json
+      +get_episode(String anime) Json
+      +get_video(String episode) Json
+    }
+    class anilist{
+      -String url
+      +login() Json
+      +getUserId(token) Json
+      +saveMediaListEntry(id, token, status, episode) Json
+      +searchAnime(String title, page)
+      +searchAnimeId(id)
+      +getListOfAnime(user,status)
+      +checkMediaInUser(user,String title)
+    }
+    class APIController{
+      +querySearch(String query) Json
+      +selectMirror(String epUrl) Json
+      +getDetails(String animeLink) Json
+    }
+    class APICall{      
+      +searchAnime(String query) Anime
+      +getMirror(String epUrl) Json
+      +getDetails(Anime anime)
+    }
+    class Anime{
+      +String objName
+      +String title
+      +String link
+      +String thumb
+      +String thumb_link
+      +String status
+      +String desc
+      +String[] eplist
+      +String eps
+      +String lastwatch
+      +Anime()
+    }
+    class Scrapper{
+      +decode_base64()
+      +encode_base64()
+      +parse_web()
+      +api_get()
+      +downloadFile()
+    }
+    class webScrapper{
+        -String base_url
+        +querySearch()
+        +selectMirror()
+        +getDetails()
+    }
+    class anilistSettings {
+        +setupUi(Form)
+        +retranslateUi(Form)
+        +saveAniConfig()
+    }
+    class config{
+        +setupUi(Config)
+        +retranslateUi(Config)
+        +saveConfig()
+    }
+    class Controller{
+        -configFile
+        -RPC
+        -listofAnime
+        +animeToDict()
+        +addToHistory()
+        +playEpisode()
+        +showDetail()
+        +btnSearchClick()
+        +updateList()
+        +openConfig()
+        +saveConfig()
+        +openHistory()
+        +loadItem()
+        +jsontoAnime()
+        +itemChanged()
+        +openAnilistSetting()
+        +getAnimeIndex()
+        +saveAniConfig()
+        +continueWatching()
+    }
+    class details {
+        +setupUi(Form,anime)
+        +retranslateUi(Form)
+        +playEpisode()
+    }
+    class gui{
+        +setupUi(MainWindow)
+        +addAnimeBox(MainWindow,anime)
+        +retranslateUi(MainWindow)
+        +playEpisode()
+        +frameClick(anime)
+        +btnSearchClick()
+        +updateList()
+        +openConfig()
+        +openHistory()
+        +openAnilistSetting()
+        +continueWatching()
+    }    
+    class history{
+        +setupUi(Form)
+        +retranslateUi(Form)
+        +loadItem()
+        +itemChanged()
+        +gotoAnime()
+        +getAnimeIndex()
+    }
+    class searchGui{
+        +setupUi(Form)
+        +retranslateUi(Form)
+        +frameClick()
+        +updateList()
+    }
+    class apiControoler_test{
+        +testQuerySearch()
+    }
+    class Scrapper_test{
+        +test_decode()
+        +test_encode()
+        +test_apiGet()
+        +test_parse()
+        +test_downloadFilePictureExist()
+        +test_downloadFilePictureNotExist()
+        +test_downloadFileNotPicture()
+    }
+  
+    Main -- gui
+    Main -- Controller
+    swagger -- APIController
+    APIController -- Scrapper
+    APIController -- Anime
+    Controller -- Anime
+    Controller -- gui
+    Controller -- details
+    Controller -- anilistSettings
+    Controller -- config
+    Controller -- history
+    Controller -- searchGui
+    Controller -- APICall
+    apiControoler_test -- APIController
+    Scrapper_test -- Scrapper
