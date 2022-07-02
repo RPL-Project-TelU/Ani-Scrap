@@ -3,3 +3,4 @@ test.py
 testGui.py
 tmp/*.jpg
 tmp/*.png
+.vscode/*
