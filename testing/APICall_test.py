@@ -2,6 +2,7 @@ import unittest
 from fn.objectClass import Anime
 import fn.APICall as apica
 import os, json
+import re
 
 
 class TestStringMethods(unittest.TestCase):
@@ -77,7 +78,9 @@ class TestStringMethods(unittest.TestCase):
         apica.getDetails(anime)
         self.assertEqual(anime.desc,sinopsis)
              
-
+    def testgetmirror(self):
+        x = apica.getMirror("https://anoboy.online/episode/kumichou-musume-to-sewagakari-episode-001#")
+        self.assert_(re.search("http.*", str(x)))
 if __name__ == '__main__':
     unittest.main()
 
