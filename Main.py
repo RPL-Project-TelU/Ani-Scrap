@@ -1,10 +1,8 @@
 import sys,json
-
 from PyQt5 import QtWidgets
 from gui import gui, Controller
 from fn import webScrapper, APICall
 from pypresence import Presence
-
 def firstSetup():
     try:
         with open('./config.json','r',encoding='utf-8') as config:
